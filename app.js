@@ -11,5 +11,4 @@ app.listen(port, ()=>{
     console.log(`Escutando a porta ${port}`)
 })
 
-// rodar node (nome do arquivo) para verificar o retorno
-//instalar o nodemon para ter o hot reload
+//AÇÃO DE USO DE GET PADRÃO
