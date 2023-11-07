@@ -3,7 +3,7 @@ const { getTodosLivros, getLivroPorId, insereLivro } = require("../servicos/livr
 function getLivros(req, res) {
     try {
         //throw new Error("teste")
-        const livros = getTodosLivros(id)
+        const livros = getTodosLivros()
         res.send(livros)
     } catch (error) {
         res.status(500)
