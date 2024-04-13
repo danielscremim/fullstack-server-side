@@ -2,17 +2,15 @@ const { getTodosFavoritos, insereFavorito, deletaFavoritoPorId } = require("../s
 
 function getFavoritos(req, res) {
     try {
-        const id = req.params.id
-        //throw new Error("teste")
         const livros = getTodosFavoritos()
         res.send(livros)
     } catch (error) {
         res.status(500)
         res.send(error.message)
-    }
+    } 
 }
 
-function postFavorito(req, res){
+function postFavorito(req, res) {
     try {
         const id = req.params.id
         insereFavorito(id)
@@ -24,9 +22,9 @@ function postFavorito(req, res){
     }
 }
 
-function deleteLivro(req, res){
+function deleteFavorito(req, res) {
     try {
-        const id= req.params.id
+        const id = req.params.id
 
         if(id && Number(id)) {
             deletaFavoritoPorId(id)
@@ -35,13 +33,8 @@ function deleteLivro(req, res){
             res.status(422)
             res.send("ID inválido")
         }
-    } catch(error) {
+    } catch (error) {
         res.status(500)
         res.send(error.message)
-    }
-}
-module.exports = {
-    getFavoritos,
-    postFavorito,
-    deleteLivro
+    } 
 }
