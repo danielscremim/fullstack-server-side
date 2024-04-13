@@ -2,19 +2,16 @@ const { getTodosLivros, getLivroPorId, insereLivro, modificaLivro, deletaLivroPo
 
 function getLivros(req, res) {
     try {
-        const id = req.params.id
-        //throw new Error("teste")
         const livros = getTodosLivros()
         res.send(livros)
     } catch (error) {
         res.status(500)
         res.send(error.message)
-    }
+    } 
 }
 
 function getLivro(req, res) {
     try {
-        //throw new Error("teste")
         const id = req.params.id
 
         if(id && Number(id)) {
@@ -24,11 +21,10 @@ function getLivro(req, res) {
             res.status(422)
             res.send("ID inválido")
         }
-     
     } catch (error) {
         res.status(500)
         res.send(error.message)
-    }
+    } 
 }
 
 function postLivro(req, res){
@@ -52,7 +48,7 @@ function postLivro(req, res){
 function patchLivro(req, res) {
     try {
         const id = req.params.id
-        
+
         if(id && Number(id)) {
             const body = req.body
             modificaLivro(body, id)
@@ -63,13 +59,13 @@ function patchLivro(req, res) {
         }
     } catch(error) {
         res.status(500)
-        res.send(error.message)
+        res.send(error.message) 
     }
 }
 
 function deleteLivro(req, res){
     try {
-        const id= req.params.id
+        const id = req.params.id
 
         if(id && Number(id)) {
             deletaLivroPorId(id)
@@ -78,19 +74,16 @@ function deleteLivro(req, res){
             res.status(422)
             res.send("ID inválido")
         }
-    } catch(error) {
+    } catch (error) {
         res.status(500)
         res.send(error.message)
-    }
+    } 
 }
-
-
 
 module.exports = {
     getLivros,
     getLivro,
     postLivro,
-    modificaLivro,
     patchLivro,
     deleteLivro
 }

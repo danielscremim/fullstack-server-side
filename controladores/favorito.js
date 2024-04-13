@@ -38,3 +38,9 @@ function deleteFavorito(req, res) {
         res.send(error.message)
     } 
 }
+
+module.exports = {
+    getFavoritos,
+    postFavorito,
+    deleteFavorito
+}
